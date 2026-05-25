@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c81855cc-911c-4237-930a-b874f4ca36e0" name="Changes" comment="Final Project Part 1">
-      <change afterPath="$PROJECT_DIR$/database/router/docenti_router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/router/iscrizioni_router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/Aule.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/Aule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/Corsi.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/Corsi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/Docenti.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/Docenti.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/DocentiCorso.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/DocentiCorso.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/Iscrizioni.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/Iscrizioni.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/Lezioni.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/Lezioni.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models/Studenti.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models/Studenti.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/router/corsi_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/router/corsi_router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/router/studenti_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/router/studenti_router.py" afterDir="false" />
-    </list>
+    <list default="true" id="c81855cc-911c-4237-930a-b874f4ca36e0" name="Changes" comment="Final Project Part 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +76,7 @@
       <updated>1779711867250</updated>
       <workItem from="1779711868335" duration="2513000" />
       <workItem from="1779714414383" duration="441000" />
-      <workItem from="1779715051906" duration="20865000" />
+      <workItem from="1779715051906" duration="21032000" />
     </task>
     <task id="LOCAL-00001" summary="Final Project Part 1">
       <option name="closed" value="true" />
@@ -100,14 +86,34 @@
       <option name="project" value="LOCAL" />
       <updated>1779728442748</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final Project Part 2">
+      <option name="closed" value="true" />
+      <created>1779742385521</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779742385521</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final Project Part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Project Part 1" />
+    <MESSAGE value="Final Project Part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Project Part 2" />
   </component>
 </project>
