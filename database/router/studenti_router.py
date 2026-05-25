@@ -5,13 +5,13 @@ from database.db import get_database  # La funzione che gestisce la connessione 
 # Inizializzazione del Router per la risorsa "Studenti"
 # prefix="/Studenti" evita di dover ripetere "/Studenti" nell'URL di ogni rotta
 # tags=["Studenti"] raggruppa queste rotte insieme nella documentazione Swagger (/docs)
-router = APIRouter(prefix="/Studenti", tags=["Studenti"])
+router = APIRouter(prefix="/Studenti", tags=["🧑‍🎓 Studenti 🧑‍🎓"])
 
 
 # ==========================================
 # 1. GET ALL - Recupera tutti gli studenti
 # ==========================================
-@router.get("/")
+@router.get("/", summary="Recupera le informazioni di tutti gli studenti")
 def get_studenti(conn=Depends(get_database)):
     """
     Recupera l'elenco completo degli studenti dal database.
@@ -33,7 +33,7 @@ def get_studenti(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera un singolo studente
 # ==========================================
-@router.get("/{studente_id}")
+@router.get("/{studente_id}", summary = "Recupera le informazione di un singolo studente tramite ID")
 def get_studentibyID(studente_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo studente in base all'ID passato nell'URL.
@@ -52,11 +52,32 @@ def get_studentibyID(studente_id: int, conn=Depends(get_database)):
     column = [col[0] for col in cursor.description]
     return [dict(zip(column, row)) for row in rows]
 
+# ==========================================
+# 3. GET BY NAME - Recupera gli studenti con il nome inserito
+# ==========================================
+@router.get("/cerca/{studente_name}", summary = "Recupera le informazione di uno studente tramite il nome")
+def get_studentibyName(studente_name: str, conn=Depends(get_database)):
+    """
+    Recupera i dati di un singolo studente in base al nome passato nell'URL.
+    """
+    cursor = conn.cursor()
+
+    # Passiamo 'studente_name' corretto alla Stored Procedure
+    cursor.execute("EXEC sp_GetStudenteByName ?", studente_name)
+    rows = cursor.fetchall()
+    # Se la lista è vuota, significa che il nome non esiste nel database
+    if not rows:
+        return {"Messaggio": f"Lo studente {studente_name} non trovato"}
+    # Se esiste, mappa il risultato in un dizionario e lo restituisce
+    column = [col[0] for col in cursor.description]
+    risultato = [dict(zip(column, row)) for row in rows]
+    return {"Messaggio": "Studente trovato con successo", "Dati": risultato}
+
 
 # ==========================================
-# 3. POST - Inserisce un nuovo studente
+# 4. POST - Inserisce un nuovo studente
 # ==========================================
-@router.post("/ADD_Studenti")
+@router.post("/ADD_Studenti", summary="Inserisce le informazioni di un nuovo studente")
 def add_studenti(
         studente_id: int,
         nome: str,
@@ -89,9 +110,9 @@ def add_studenti(
 
 
 # ==========================================
-# 4. DELETE - Elimina uno studente
+# 5. DELETE - Elimina uno studente
 # ==========================================
-@router.delete("/Delete/{studente_id}")
+@router.delete("/Delete/{studente_id}", summary="Elimina le informazioni di uno studente")
 def delete_studenti(studente_id: int, conn=Depends(get_database)):
     """
     Elimina uno studente dal database tramite il suo ID.
@@ -108,9 +129,9 @@ def delete_studenti(studente_id: int, conn=Depends(get_database)):
 
 
 # ==========================================
-# 5. PUT - Aggiorna i dati di uno studente
+# 6. PUT - Aggiorna i dati di uno studente
 # ==========================================
-@router.put("/Update/{studente_id}")
+@router.put("/Update/{studente_id}", summary="Aggiorna le informazioni di uno studente")
 def update_studenti(
         studente_id: int,
         nome: str,

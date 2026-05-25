@@ -4,16 +4,16 @@ from database.db import get_database  # La funzione che gestisce la connessione 
 # Inizializzazione del Router per la risorsa "Corsi"
 # prefix="/Corsi" evita di dover ripetere "/Corsi" nell'URL di ogni rotta
 # tags=["Corsi"] raggruppa queste rotte insieme nella documentazione Swagger (/docs)
-router = APIRouter(prefix="/Corsi", tags=["Corsi"])
+router = APIRouter(prefix="/Corsi", tags=["📚 Corsi 📚"])
 
 
 # ==========================================
 # 1. GET ALL - Recupera tutti i corsi
 # ==========================================
-@router.get("/")
+@router.get("/", summary = "Recupera le informazioni di tutti gli studenti")
 def get_corsi(conn=Depends(get_database)):
     """
-    Recupera l'elenco completo degli studenti dal database.
+    Recupera l'elenco completo dei corsi dal database.
     Usiamo Depends(get_database) per iniettare la connessione attiva.
     """
     cursor = conn.cursor()
@@ -32,14 +32,14 @@ def get_corsi(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera un singolo corso
 # ==========================================
-@router.get("/{corsi_id}")
+@router.get("/{corsi_id}", summary = "Recupera le informazioni di un singolo corso")
 def get_corsibyID(corsi_id: int, conn=Depends(get_database)):
     """
-    Recupera i dati di un singolo studente in base all'ID passato nell'URL.
+    Recupera i dati di un singolo corso in base all'ID passato nell'URL.
     """
     cursor = conn.cursor()
 
-    # Passiamo 'studente_id' corretto alla Stored Procedure
+    # Passiamo 'corso_id' corretto alla Stored Procedure
     cursor.execute("EXEC sp_GetCorsiByID ?", [corsi_id])
     rows = cursor.fetchall()
 
@@ -51,11 +51,10 @@ def get_corsibyID(corsi_id: int, conn=Depends(get_database)):
     column = [col[0] for col in cursor.description]
     return [dict(zip(column, row)) for row in rows]
 
-
 # ==========================================
 # 3. POST - Inserisce un nuovo corso
 # ==========================================
-@router.post("/ADD_Corsi")
+@router.post("/ADD_Corsi", summary = "Inserisce le informazioni di un nuovo corso")
 def add_corsi(
         nome_corso: str,
         descrizione_corso: str,
@@ -63,7 +62,7 @@ def add_corsi(
         durata: int = None,
         conn=Depends(get_database)):
     """
-    Riceve i dati dello studente e invoca la SP di inserimento.
+    Riceve i dati deli corsi e invoca la SP di inserimento.
     """
     cursor = conn.cursor()
 
@@ -84,7 +83,7 @@ def add_corsi(
 # ==========================================
 # 4. DELETE - Elimina un corso tramite id
 # ==========================================
-@router.delete("/Delete/{corsi_id}")
+@router.delete("/Delete/{corsi_id}", summary = "Elimina le informazioni di un corso")
 def delete_corsi(corsi_id: int, conn=Depends(get_database)):
     """
     Elimina un corso dal database tramite il suo ID.
@@ -103,7 +102,7 @@ def delete_corsi(corsi_id: int, conn=Depends(get_database)):
 # ==========================================
 # 5. PUT - Aggiorna i dati di un corso tramite id
 # ==========================================
-@router.put("/Update/{corsi_id}")
+@router.put("/Update/{corsi_id}", summary = "Aggiorna le informazioni di un corso")
 def update_corsi(
         corso_id: int,
         nome_corso: str = None,
@@ -112,7 +111,7 @@ def update_corsi(
         durata: str = None,
         conn=Depends(get_database)):
     """
-    Aggiorna i dati di uno studente esistente usando il metodo HTTP PUT.
+    Aggiorna i dati di un corso esistente usando il metodo HTTP PUT.
     """
     cursor = conn.cursor()
 
