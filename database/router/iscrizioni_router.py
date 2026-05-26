@@ -11,7 +11,7 @@ router = APIRouter(prefix="/Iscrizioni", tags=["📑 Iscrizioni 📑"])
 # ==========================================
 # 1. GET ALL - Recupera tutti le iscrizioni
 # ==========================================
-@router.get("/", summary = "Recupera le informazioni di tutte le iscrizioni")
+@router.get("/GET ALL ISCRIZIONI", summary = "Recupera le informazioni di tutte le iscrizioni")
 def get_iscrizioni(conn=Depends(get_database)):
     """
     Recupera l'elenco completo delle iscrizioni dal database.
@@ -33,7 +33,7 @@ def get_iscrizioni(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera una singola iscrizione
 # ==========================================
-@router.get("/{iscrizioni_id}", summary="Recupera le informazioni di una singola iscrizione")
+@router.get("/GET ISCRIZIONE BY ID", summary="Recupera le informazioni di una singola iscrizione")
 def get_iscrizionibyID(iscrizioni_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un'iscrizione in base all'ID passato nell'URL.
@@ -55,7 +55,7 @@ def get_iscrizionibyID(iscrizioni_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. POST - Inserisce una nuova iscrizione
 # ==========================================
-@router.post("/ADD_Iscrizioni",
+@router.post("/ADD ISCRIZIONI",
             summary="Crea una nuova iscrizione nel registro", # Il testo in grassetto accanto al bottone POST
             description="Questa rotta permette di iscrivere uno studente a un corso. **Attenzione:** verifica che l'ID studente e l'ID corso esistano prima di procedere.", # Il testo testeso dentro il bottone
             response_description="Ritorna un messaggio di successo o di errore", # Descrizione della risposta in basso
@@ -87,7 +87,7 @@ def add_iscrizione(
 # ==========================================
 # 4. DELETE - Elimina un' iscrizione tramite id
 # ==========================================
-@router.delete("/Delete/{iscrizioni_id}", summary = "Elimina le informazioni di un'iscrizione tramite il suo ID")
+@router.delete("/DELETE ISCRIZIONE BY ID", summary = "Elimina le informazioni di un'iscrizione tramite il suo ID")
 def delete_iscrizioni(iscrizioni_id: int, conn=Depends(get_database)):
     """
     Elimina un' iscrizione dal database tramite il suo ID.
@@ -106,7 +106,7 @@ def delete_iscrizioni(iscrizioni_id: int, conn=Depends(get_database)):
 # ==========================================
 # 5. PUT - Aggiorna i dati di un' iscrizione tramite id
 # ==========================================
-@router.put("/Update/{iscrizione_id}", summary="Aggiorna i dati di un'iscrizione tramite ID")
+@router.put("/UPDATE LEZIONE BY ID", summary="Aggiorna i dati di un'iscrizione tramite ID")
 def update_iscrizione(
         iscrizione_id: int,
         studente_id: int,
@@ -119,7 +119,7 @@ def update_iscrizione(
     cursor = conn.cursor()
 
     # Esegue la stored procedure di aggiornamento inviando i nuovi dati
-    cursor.execute("EXEC sp_UpdateCorsoById ?, ?, ?, ?",
+    cursor.execute("EXEC sp_UpdateIscrizioniById ?, ?, ?, ?",
                     iscrizione_id,
                     studente_id,
                     corso_id,

@@ -10,7 +10,7 @@ router = APIRouter(prefix="/Docenti_Corso", tags=["🧑‍🏫 Docenti Corso �
 # ==========================================
 # 1. GET ALL - Recupera tutte le informazioni contenute in Docenti Corso
 # ==========================================
-@router.get("/", summary = "Recupera le informazioni di tutte le ID collegate alla correlazione Docenti/Corsi")
+@router.get("/GET ALL DOCENTI-CORSO", summary = "Recupera le informazioni di tutte le ID collegate alla correlazione Docenti/Corsi")
 def get_DC(conn=Depends(get_database)):
     """
     Recupera l'elenco completo degli id docenti e corso (racchiuse in DocentiCorso) dal database ScuolaDb.
@@ -32,7 +32,7 @@ def get_DC(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Tramite ID recupera le informazioni di correlazione Docenti/Corso
 # ==========================================
-@router.get("/{DC_id}", summary = "Recupera le informazioni di una singolo ID in DocentiCorso")
+@router.get("/GET DOCENTI-CORSO BY ID", summary = "Recupera le informazioni di una singolo ID in DocentiCorso")
 def get_DCID(dc_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo ID in DocentiCorso passato nell'URL.
@@ -54,7 +54,7 @@ def get_DCID(dc_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. POST - Inserisce una nuova informazione collegata al Docente e Corso
 # ==========================================
-@router.post("/ADD_DC", summary = "Inserisce le informazioni di un nuovo collegamento docenti e id")
+@router.post("/ADD DOCENTI-CORSO", summary = "Inserisce le informazioni di un nuovo collegamento docenti e id")
 def add_DC(
         docenti_id: int,
         corso_id: int,
@@ -79,7 +79,7 @@ def add_DC(
 # ==========================================
 # 4. DELETE - Elimina tramite l' ID le informazioni la correlazione tra docenti e corso
 # ==========================================
-@router.delete("/Delete/{dc_id}", summary = "Elimina le informazioni di correlazione docenti e id")
+@router.delete("/DELETE DOCENTI CORSO", summary = "Elimina le informazioni di correlazione docenti e id")
 def delete_dc(dc_id: int, conn=Depends(get_database)):
     """
     Elimina una correlazione Docente e Corso dal database tramite il suo ID.
@@ -98,7 +98,7 @@ def delete_dc(dc_id: int, conn=Depends(get_database)):
 # ==========================================
 # 5. PUT - Aggiorna i dati di una correlazione Docenti/Corso tramite id
 # ==========================================
-@router.put("/Update/{dc_id}", summary = "Aggiorna le informazioni di una correlazione Docente/Corso tramite ID")
+@router.put("/UPDATE DOCENTI-CORSO BY ID", summary = "Aggiorna le informazioni di una correlazione Docente/Corso tramite ID")
 def update_dc(
         dc_id: int,
         docente_id: int = None,

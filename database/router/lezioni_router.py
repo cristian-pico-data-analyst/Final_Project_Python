@@ -1,7 +1,6 @@
+from datetime import date
 from datetime import time
-
 from fastapi import APIRouter, Depends
-from sqlalchemy import DATE
 
 from database.db import get_database  # La funzione che gestisce la connessione al DB
 
@@ -14,7 +13,7 @@ router = APIRouter(prefix="/Lezioni", tags=["📖 Lezioni 📖"])
 # ==========================================
 # 1. GET ALL - Recupera tutte le lezioni
 # ==========================================
-@router.get("/", summary = "Recupera le informazioni di tutti le informazioni")
+@router.get("/GET ALL LEZIONI", summary = "Recupera le informazioni di tutti le informazioni")
 def get_lezioni(conn=Depends(get_database)):
     """
     Recupera l'elenco completo delle lezioni dal database.
@@ -36,7 +35,7 @@ def get_lezioni(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera le informazioni di una lezione in base all' ID
 # ==========================================
-@router.get("/{lezioni_id}", summary = "Recupera le informazioni di una singola lezione")
+@router.get("/GET LEZIONI BY ID", summary = "Recupera le informazioni di una singola lezione")
 def get_lezionibyID(lezioni_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di una singola lezione in base all'ID passato nell'URL.
@@ -58,11 +57,11 @@ def get_lezionibyID(lezioni_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. POST - Inserisce un nuova lezione
 # ==========================================
-@router.post("/ADD_Lezioni", summary = "Inserisce le informazioni di una nuova lezione")
+@router.post("/ADD LEZIONI", summary = "Inserisce le informazioni di una nuova lezione")
 def add_lezioni(
         corso_id: int,
         aula_id: int,
-        data_lezione: DATE,
+        data_lezione: date,
         ora_inizio: time,
         ora_fine: time,
         conn=Depends(get_database)):
@@ -89,7 +88,7 @@ def add_lezioni(
 # ==========================================
 # 4. DELETE - Elimina una lezione tramite id
 # ==========================================
-@router.delete("/Delete/{lezioni_id}", summary = "Elimina le informazioni di una lezione")
+@router.delete("/DELETE LEZIONI BY ID", summary = "Elimina le informazioni di una lezione")
 def delete_lezioni(lezioni_id: int, conn=Depends(get_database)):
     """
     Elimina una lezione dal database tramite il suo ID.
@@ -108,12 +107,12 @@ def delete_lezioni(lezioni_id: int, conn=Depends(get_database)):
 # ==========================================
 # 5. PUT - Aggiorna i dati di una lezione tramite id
 # ==========================================
-@router.put("/Update/{lezioni_id}", summary = "Aggiorna le informazioni di una lezione")
+@router.put("/UPDATE LEZIONI BY ID", summary = "Aggiorna le informazioni di una lezione")
 def update_lezioni(
         lezioni_id: int,
         corso_id: int,
         aula_id: int,
-        data_lezione: DATE,
+        data_lezione: date,
         ora_inizio: time,
         ora_fine: time,
         conn=Depends(get_database)):

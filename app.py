@@ -39,7 +39,7 @@ app.include_router(lezioni_router)
 # ---------------------------------------------------------------------
 # Endpoint: Lista delle tabelle (Root "/")
 # ---------------------------------------------------------------------
-@app.get("/", tags=["Gestione Registro Studenti"])
+@app.get("/GET ALL LISTA TABELLE ScuolaDb", tags=["Gestione Registro Studenti"])
 def lista_tabella(connection=Depends(get_database)):
     """
     Ritorna la lista di tutte le tabelle presenti nel database 
@@ -63,7 +63,7 @@ def lista_tabella(connection=Depends(get_database)):
 # ---------------------------------------------------------------------
 # Endpoint: Lettura dinamica di una specifica tabella
 # ---------------------------------------------------------------------
-@app.get("/tabella/{nome_tabella}")
+@app.get("/READ ALL FROM ScuolaDb")
 def leggi_tabella(nome_tabella: str, conn=Depends(get_database)):
     """
     Data una specifica tabella in input nell'URL, 

@@ -10,7 +10,7 @@ router = APIRouter(prefix="/Corsi", tags=["📚 Corsi 📚"])
 # ==========================================
 # 1. GET ALL - Recupera tutti i corsi
 # ==========================================
-@router.get("/", summary = "Recupera le informazioni di tutti gli studenti")
+@router.get("/GET ALL CORSI", summary = "Recupera le informazioni di tutti gli studenti")
 def get_corsi(conn=Depends(get_database)):
     """
     Recupera l'elenco completo dei corsi dal database.
@@ -32,7 +32,7 @@ def get_corsi(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera un singolo corso
 # ==========================================
-@router.get("/{corsi_id}", summary = "Recupera le informazioni di un singolo corso")
+@router.get("/GET CORSI BY ID", summary = "Recupera le informazioni di un singolo corso")
 def get_corsibyID(corsi_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo corso in base all'ID passato nell'URL.
@@ -54,7 +54,7 @@ def get_corsibyID(corsi_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. POST - Inserisce un nuovo corso
 # ==========================================
-@router.post("/ADD_Corsi", summary = "Inserisce le informazioni di un nuovo corso")
+@router.post("/ADD CORSI", summary = "Inserisce le informazioni di un nuovo corso")
 def add_corsi(
         nome_corso: str,
         descrizione_corso: str,
@@ -83,7 +83,7 @@ def add_corsi(
 # ==========================================
 # 4. DELETE - Elimina un corso tramite id
 # ==========================================
-@router.delete("/Delete/{corsi_id}", summary = "Elimina le informazioni di un corso")
+@router.delete("/DELETE CORSI BY ID", summary = "Elimina le informazioni di un corso")
 def delete_corsi(corsi_id: int, conn=Depends(get_database)):
     """
     Elimina un corso dal database tramite il suo ID.
@@ -102,7 +102,7 @@ def delete_corsi(corsi_id: int, conn=Depends(get_database)):
 # ==========================================
 # 5. PUT - Aggiorna i dati di un corso tramite ID
 # ==========================================
-@router.put("/Update/{corsi_id}", summary = "Aggiorna le informazioni di un corso")
+@router.put("/UPDATE CORSI BY ID", summary = "Aggiorna le informazioni di un corso")
 def update_corsi(
         corso_id: int,
         nome_corso: str = None,

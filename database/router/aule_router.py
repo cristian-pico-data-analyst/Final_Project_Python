@@ -10,7 +10,7 @@ router = APIRouter(prefix="/Aule", tags=["🏛️ Aule 🏛️"])
 # ==========================================
 # 1. GET ALL - Recupera tutti le aule
 # ==========================================
-@router.get("/", summary = "Recupera le informazioni di tutti le aule")
+@router.get("/GET ALL AULE", summary = "Recupera le informazioni di tutti le aule")
 def get_aule(conn=Depends(get_database)):
     """
     Recupera l'elenco completo delle aule dal database ScuolaDb.
@@ -32,7 +32,7 @@ def get_aule(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera una singola aula
 # ==========================================
-@router.get("/{aule_id}", summary = "Recupera le informazioni di una singola aula tramite ID")
+@router.get("/GET AULA BY ID", summary = "Recupera le informazioni di una singola aula tramite ID")
 def get_aulebyID(aule_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un singola aula in base all'ID passato nell'URL.
@@ -54,7 +54,7 @@ def get_aulebyID(aule_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. POST - Inserisce una nuova aula
 # ==========================================
-@router.post("/ADD_Aula", summary = "Inserisce le informazioni di una nuova aula")
+@router.post("/ADD AULA", summary = "Inserisce le informazioni di una nuova aula")
 def add_aula(
         nome_aula: str,
         capacita: str,
@@ -79,7 +79,7 @@ def add_aula(
 # ==========================================
 # 4. DELETE - Elimina un' aula tramite id
 # ==========================================
-@router.delete("/Delete/{aula_id}", summary = "Elimina le informazioni di un' aula")
+@router.delete("/DELETE AULA", summary = "Elimina le informazioni di un' aula")
 def delete_aula(aula_id: int, conn=Depends(get_database)):
     """
     Elimina un' aula dal database tramite il suo ID.
@@ -98,7 +98,7 @@ def delete_aula(aula_id: int, conn=Depends(get_database)):
 # ==========================================
 # 5. PUT - Aggiorna i dati di un' aula tramite id
 # ==========================================
-@router.put("/Update/{aula_id}", summary = "Aggiorna le informazioni di un' aula tramite ID")
+@router.put("/UPDATE AULA BY ID", summary = "Aggiorna le informazioni di un' aula tramite ID")
 def update_aule(
         aula_id: int,
         nome_aula: str = None,
