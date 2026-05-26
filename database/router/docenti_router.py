@@ -11,7 +11,7 @@ router = APIRouter(prefix="/Docenti", tags=["🧑‍🏫 Docenti 🧑‍🏫"])
 # ==========================================
 # 1. GET ALL - Recupera tutti i Docenti
 # ==========================================
-@router.get("/GET ALL DOCENTI", summary="Recupera le informazioni di tutti i docenti")
+@router.get("/GET_ALL_DOCENTI", summary="Recupera le informazioni di tutti i docenti")
 def get_docenti(conn=Depends(get_database)):
     """
     Recupera l'elenco completo degli studenti dal database.
@@ -33,7 +33,7 @@ def get_docenti(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera un singolo docente attraverso ID
 # ==========================================
-@router.get("/GET DOCENTI BY ID", summary="Recupera un singolo docente tramite ID")
+@router.get("/GET_DOCENTI_BY_ID", summary="Recupera un singolo docente tramite ID")
 def get_docentebyID(docente_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo docente in base all'ID passato nell'URL.
@@ -55,7 +55,7 @@ def get_docentebyID(docente_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. GET BY NAME - Recupera i docenti in base al cognome
 # ==========================================
-@router.get("/GET DOCENTI BY SURNAME", summary="Ricerca le informazioni di un docente tramite cognome")
+@router.get("/GET_DOCENTI_BY_SURNAME", summary="Ricerca le informazioni di un docente tramite cognome")
 def get_docentebysurname(docente_surname: str, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo docente in base al cognome passato nell'URL.
@@ -79,7 +79,7 @@ def get_docentebysurname(docente_surname: str, conn=Depends(get_database)):
 # ==========================================
 # 4. POST - Inserisce un nuovo docente
 # ==========================================
-@router.post("/ADD DOCENTE", summary = "Inserisce un nuovo docente")
+@router.post("/ADD_DOCENTE", summary = "Inserisce un nuovo docente")
 def add_docente(
         docente_id: int,
         nome: str,
@@ -110,7 +110,7 @@ def add_docente(
 # ==========================================
 # 5. DELETE - Elimina un docente tramite ID
 # ==========================================
-@router.delete("/DELETE DOCENTE BY ID", summary="Elimina le informazioni di un docente")
+@router.delete("/DELETE_DOCENTE_BY_ID", summary="Elimina le informazioni di un docente")
 def delete_studenti(docente_id: int, conn=Depends(get_database)):
     """
     Elimina uno docente dal database tramite il suo ID.
@@ -129,7 +129,7 @@ def delete_studenti(docente_id: int, conn=Depends(get_database)):
 # ==========================================
 # 6. PUT - Aggiorna i dati di un docente
 # ==========================================
-@router.put("/UPDATE DOCENTE BY ID", summary = "Aggiorna le informazioni di un docente")
+@router.put("/UPDATE_DOCENTE_BY_ID", summary = "Aggiorna le informazioni di un docente")
 def update_docente(
         docente_id: int,
         nome: str,

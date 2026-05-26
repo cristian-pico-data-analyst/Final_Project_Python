@@ -11,7 +11,7 @@ router = APIRouter(prefix="/Studenti", tags=["🧑‍🎓 Studenti 🧑‍🎓"]
 # ==========================================
 # 1. GET ALL - Recupera tutti gli studenti
 # ==========================================
-@router.get("/GET ALL STUDENTI", summary="Recupera le informazioni di tutti gli studenti")
+@router.get("/GET_ALL_STUDENTI", summary="Recupera le informazioni di tutti gli studenti")
 def get_studenti(conn=Depends(get_database)):
     """
     Recupera l'elenco completo degli studenti dal database.
@@ -33,7 +33,7 @@ def get_studenti(conn=Depends(get_database)):
 # ==========================================
 # 2. GET BY ID - Recupera un singolo studente
 # ==========================================
-@router.get("/GET STUDENTE BY ID", summary = "Recupera le informazione di un singolo studente tramite ID")
+@router.get("/GET_STUDENTE_BY_ID", summary = "Recupera le informazione di un singolo studente tramite ID")
 def get_studentibyID(studente_id: int, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo studente in base all'ID passato nell'URL.
@@ -55,7 +55,7 @@ def get_studentibyID(studente_id: int, conn=Depends(get_database)):
 # ==========================================
 # 3. GET BY NAME - Recupera gli studenti con il nome inserito
 # ==========================================
-@router.get("/GET STUDENTE BY NAME", summary = "Recupera le informazione di uno studente tramite il nome")
+@router.get("/GET_STUDENTE_BY_NAME", summary = "Recupera le informazione di uno studente tramite il nome")
 def get_studentibyName(studente_name: str, conn=Depends(get_database)):
     """
     Recupera i dati di un singolo studente in base al nome passato nell'URL.
@@ -77,7 +77,7 @@ def get_studentibyName(studente_name: str, conn=Depends(get_database)):
 # ==========================================
 # 4. POST - Inserisce un nuovo studente
 # ==========================================
-@router.post("/ADD STUDENTI", summary="Inserisce le informazioni di un nuovo studente")
+@router.post("/ADD_STUDENTI", summary="Inserisce le informazioni di un nuovo studente")
 def add_studenti(
         studente_id: int,
         nome: str,
@@ -112,7 +112,7 @@ def add_studenti(
 # ==========================================
 # 5. DELETE - Elimina uno studente
 # ==========================================
-@router.delete("/DELETE STUDENTE BY ID", summary="Elimina le informazioni di uno studente")
+@router.delete("/DELETE_STUDENTE_BY_ID", summary="Elimina le informazioni di uno studente")
 def delete_studenti(studente_id: int, conn=Depends(get_database)):
     """
     Elimina uno studente dal database tramite il suo ID.
@@ -131,7 +131,7 @@ def delete_studenti(studente_id: int, conn=Depends(get_database)):
 # ==========================================
 # 6. PUT - Aggiorna i dati di uno studente
 # ==========================================
-@router.put("/UPDATE STUDENTE BY ID", summary="Aggiorna le informazioni di uno studente")
+@router.put("/UPDATE_STUDENTE_BY_ID", summary="Aggiorna le informazioni di uno studente")
 def update_studenti(
         studente_id: int,
         nome: str,
