@@ -96,11 +96,11 @@ def delete_corsi(corsi_id: int, conn=Depends(get_database)):
     # Conferma l'eliminazione sul database
     conn.commit()
 
-    return {"Messaggio": f"Il corso {corsi_id} è stato eliminato con successo"}
+    return {"Messaggio": f"Il corso con ID:{corsi_id} è stato eliminato con successo"}
 
 
 # ==========================================
-# 5. PUT - Aggiorna i dati di un corso tramite id
+# 5. PUT - Aggiorna i dati di un corso tramite ID
 # ==========================================
 @router.put("/Update/{corsi_id}", summary = "Aggiorna le informazioni di un corso")
 def update_corsi(
@@ -121,7 +121,7 @@ def update_corsi(
                     nome_corso,
                     descrizione_corso,
                     crediti,
-                    durata,
+                    durata
                    )
 
     # Conferma le modifiche dell'aggiornamento
