@@ -16,7 +16,7 @@ Il sistema si interfaccia con un database **SQL Server** locale utilizzando il d
 Il codice è organizzato in moduli (router) per facilitare la manutenzione:
 
 * **`database/`**
-  * `db.py`: Gestisce la stringa di connessione a SQL Server (`CRISTIAN_PICO\SQLEXPRESS`) e fornisce il generatore di connessioni (Dependency Injection).
+  * `db.py`: Gestisce la stringa di connessione a SQL Server (`tuo_server\SQLEXPRESS`) e fornisce il generatore di connessioni (Dependency Injection).
 * **`routers/`** (Moduli API)
   * `aule_router.py`: Operazioni CRUD per le 🏛️ Aule.
   * `corsi_router.py`: Operazioni CRUD per i 📚 Corsi.
