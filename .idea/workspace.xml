@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c81855cc-911c-4237-930a-b874f4ca36e0" name="Changes" comment="Final Project Part 4">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c81855cc-911c-4237-930a-b874f4ca36e0" name="Changes" comment="Final Project Part 4" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +81,7 @@
       <workItem from="1779782045208" duration="3188000" />
       <workItem from="1779785699051" duration="2215000" />
       <workItem from="1779798985908" duration="3424000" />
+      <workItem from="1780066991054" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="Final Project Part 1">
       <option name="closed" value="true" />
